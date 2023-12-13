@@ -124,6 +124,7 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    jslint_on_rails (1.1.1)
     json (2.7.1)
     language_server-protocol (3.17.0.3)
     listen (3.0.8)
@@ -282,6 +283,7 @@ DEPENDENCIES
   graphql
   importmap-rails
   jbuilder
+  jslint_on_rails
   listen (>= 3.0.5, < 3.2)
   pg (~> 1.1)
   puma (>= 5.0)

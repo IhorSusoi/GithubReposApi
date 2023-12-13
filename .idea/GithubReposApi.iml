@@ -64,6 +64,7 @@
     <orderEntry type="library" scope="PROVIDED" name="io-console (v0.7.0, asdf: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="irb (v1.10.1, asdf: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.11.5, asdf: 3.2.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="jslint_on_rails (v1.1.1, asdf: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="json (v2.7.1, asdf: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="language_server-protocol (v3.17.0.3, asdf: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="listen (v3.0.8, asdf: 3.2.2) [gem]" level="application" />
