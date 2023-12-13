@@ -1,29 +1,35 @@
 # frozen_string_literal: true
 
+# Main controller
 class GraphqlController < ApplicationController
-
   def index
     @graphql_result = session.delete(:graphql_result)
     @parsed_result = JSON.parse(@graphql_result) if @graphql_result.present?
   end
+
   def execute
-    variables = prepare_variables(params[:variables])
-    query = params[:query]
-    operation_name = params[:operationName]
-    context = {
-      # Query context goes here, for example:
-      # current_user: current_user,
-    }
-    result = GithubReposApiSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
-    render json: result
+    nickname = params[:nickname]
+    result = GithubReposApiSchema.execute(query, variables: { nickname: nickname })
+    session[:graphql_result] = result.to_json
+    redirect_to action: :index
   rescue StandardError => e
     raise e unless Rails.env.development?
+
     handle_error_in_development(e)
   end
 
   private
 
-  # Handle variables in form data, JSON body, or a blank value
+  def query
+    <<-GRAPHQL
+      query GetUser($nickname: String!) {
+        getUserData(nickname: $nickname) {
+          name
+        }
+      }
+    GRAPHQL
+  end
+
   def prepare_variables(variables_param)
     case variables_param
     when String

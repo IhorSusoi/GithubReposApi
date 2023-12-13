@@ -1,31 +1,28 @@
 # frozen_string_literal: true
 
 module Types
+  # Query type
   class QueryType < Types::BaseObject
-    field :node, Types::NodeType, null: true, description: "Fetches an object given its ID." do
-      argument :id, ID, required: true, description: "ID of the object."
+    field :get_user_data, Types::UserType, null: true do
+      argument :nickname, String, required: true
     end
 
-    def node(id:)
-      context.schema.object_from_id(id, context)
+    def get_user_data(nickname)
+      user_data = send_to_external_api(nickname)
+      result = JSON.parse(user_data)
+      {
+        name: result['name']
+      }
     end
 
-    field :nodes, [Types::NodeType, null: true], null: true, description: "Fetches a list of objects given a list of IDs." do
-      argument :ids, [ID], required: true, description: "IDs of the objects."
-    end
-
-    def nodes(ids:)
-      ids.map { |id| context.schema.object_from_id(id, context) }
-    end
-
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
-
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World!"
+    def send_to_external_api(nickname)
+      uri = URI.parse("https://api.github.com/users/#{nickname[:nickname]}")
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = (uri.scheme == 'https')
+      request = Net::HTTP::Get.new(uri.path)
+      request.set_form_data('nickname' => nickname[:nickname])
+      response = http.request(request)
+      response.body
     end
   end
 end

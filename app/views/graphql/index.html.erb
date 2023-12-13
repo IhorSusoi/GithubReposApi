@@ -1,0 +1,11 @@
+<%= form_with url: "/graphql", method: 'post', local: true do |form| %>
+  <%= form.label :nickname, "Search for:" %>
+  <%= form.text_field :nickname %>
+  <%= form.submit "Search" %>
+<% end %>
+
+<div id="result">
+  <% if @parsed_result.present? %>
+    <p>Name: <%= @parsed_result.dig('data', 'getUserData', 'name') %></p>
+  <% end %>
+</div>
