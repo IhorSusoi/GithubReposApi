@@ -25,7 +25,20 @@ module Types
       request = Net::HTTP::Get.new(uri.path)
       request.set_form_data('nickname' => nickname[:nickname])
       response = http.request(request)
-      response.body
+      # Перевірка коду статусу
+      case response
+      when Net::HTTPSuccess
+        # Якщо код статусу 200 OK, поверніть тіло відповіді
+        response.body
+      when Net::HTTPNotFound
+        # Якщо код статусу 404 Not Found, поверніть порожню відповідь або обробте помилку, якщо потрібно
+        {
+          "name": "not exist"
+        }.to_json
+      else
+        # Обробка інших кодів статусу
+        raise "External API request failed with status #{response.code}"
+      end
     end
 
     def get_user_repo_data(nickname)
@@ -46,7 +59,21 @@ module Types
       request.set_form_data('nickname' => nickname[:nickname])
 
       response = http.request(request)
-      response.body
+      case response
+      when Net::HTTPSuccess
+        # Якщо код статусу 200 OK, поверніть тіло відповіді
+        response.body
+      when Net::HTTPNotFound
+        # Якщо код статусу 404 Not Found, поверніть порожню відповідь або обробте помилку, якщо потрібно
+        [
+          {
+            "name": "not exist"
+          }
+        ].to_json
+      else
+        # Обробка інших кодів статусу
+        raise "External API request failed with status #{response.code}"
+      end
     end
   end
 end
