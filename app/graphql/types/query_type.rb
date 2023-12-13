@@ -6,6 +6,9 @@ module Types
     field :get_user_data, Types::UserType, null: true do
       argument :nickname, String, required: true
     end
+    field :get_user_repo_data, Types::UserRepoType, null: true do
+      argument :nickname, String, required: true
+    end
 
     def get_user_data(nickname)
       user_data = send_to_external_api(nickname)
