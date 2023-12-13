@@ -7,5 +7,14 @@
 <div id="result">
   <% if @parsed_result.present? %>
     <p>Name: <%= @parsed_result.dig('data', 'getUserData', 'name') %></p>
+    <% repos = @parsed_result.dig('data','getUserRepoData','name') %>
+    <% if repos.present? %>
+      <p>Repositories:</p>
+      <ul>
+        <% repos.each do |repo| %>
+          <li><%= repo %></li>
+        <% end %>
+      </ul>
+    <% end %>
   <% end %>
 </div>
