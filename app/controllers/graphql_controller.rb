@@ -9,7 +9,7 @@ class GraphqlController < ApplicationController
 
   def execute
     nickname = params[:nickname]
-    result = GithubReposApiSchema.execute(query, variables: { nickname: nickname })
+    result = GithubReposApiSchema.execute(query, variables: { nickname: })
     session[:graphql_result] = result.to_json
     redirect_to action: :index
   rescue StandardError => e
