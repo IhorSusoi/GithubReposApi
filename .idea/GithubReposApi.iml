@@ -59,6 +59,7 @@
     <orderEntry type="library" scope="PROVIDED" name="globalid (v1.2.1, asdf: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="graphiql-rails (v1.9.0, asdf: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="graphql (v2.1.7, asdf: 3.2.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="httparty (v0.21.0, asdf: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.14.1, asdf: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="importmap-rails (v1.2.3, asdf: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="io-console (v0.7.0, asdf: 3.2.2) [gem]" level="application" />
@@ -75,6 +76,7 @@
     <orderEntry type="library" scope="PROVIDED" name="mini_mime (v1.1.5, asdf: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="minitest (v5.20.0, asdf: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="msgpack (v1.7.2, asdf: 3.2.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multi_xml (v0.6.0, asdf: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mutex_m (v0.2.0, asdf: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="net-imap (v0.4.8, asdf: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="net-pop (v0.1.2, asdf: 3.2.2) [gem]" level="application" />

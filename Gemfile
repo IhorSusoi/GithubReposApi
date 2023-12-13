@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 ruby '3.2.2'
 
 gem 'graphql'
+gem 'httparty'
 gem 'jslint_on_rails'
 gem 'rubocop', require: false
 
