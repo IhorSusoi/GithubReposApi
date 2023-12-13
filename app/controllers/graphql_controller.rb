@@ -26,6 +26,9 @@ class GraphqlController < ApplicationController
         getUserData(nickname: $nickname) {
           name
         }
+        getUserRepoData(nickname: $nickname) {
+          name
+        }
       }
     GRAPHQL
   end
